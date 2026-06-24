@@ -1,15 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { LoginSchema } from '../types/LoginSchema';
+import { LoginSchema } from '../types/loginSchema';
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 
 const initialState: LoginSchema = {
     isLoading: false,
     username: '',
     password: '',
-    error: undefined,
 };
 
-export const LoginSlice = createSlice({
+export const loginSlice = createSlice({
     name: 'login',
     initialState,
     reducers: {
@@ -36,5 +35,6 @@ export const LoginSlice = createSlice({
     },
 });
 
-export const { actions: loginActions } = LoginSlice;
-export const { reducer: loginReducer } = LoginSlice;
+// Action creators are generated for each case reducer function
+export const { actions: loginActions } = loginSlice;
+export const { reducer: loginReducer } = loginSlice;

@@ -4,15 +4,13 @@ import React, {
 } from 'react';
 import cls from './Input.module.scss';
 
-type HtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
-interface InputProps extends HtmlInputProps {
+interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string;
     onChange?: (value: string) => void;
-    type?: string;
-    placeholder?: string;
-    autofocus?: boolean
+    autofocus?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -25,8 +23,7 @@ export const Input = memo((props: InputProps) => {
         autofocus,
         ...otherProps
     } = props;
-
-    const ref = useRef<HTMLInputElement>();
+    const ref = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
 
@@ -56,8 +53,7 @@ export const Input = memo((props: InputProps) => {
 
     return (
         <div className={classNames(cls.InputWrapper, {}, [className])}>
-            {placeholder
-            && (
+            {placeholder && (
                 <div className={cls.placeholder}>
                     {`${placeholder}>`}
                 </div>
@@ -69,8 +65,8 @@ export const Input = memo((props: InputProps) => {
                     value={value}
                     onChange={onChangeHandler}
                     className={cls.input}
-                    onBlur={onBlur}
                     onFocus={onFocus}
+                    onBlur={onBlur}
                     onSelect={onSelect}
                     {...otherProps}
                 />

@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
+import { userEvent } from '@storybook/testing-library';
 import { Counter } from './Counter';
 
 describe('Counter', () => {
-    test('with only first param', () => {
+    test('test render', () => {
         componentRender(<Counter />, {
             initialState: { counter: { value: 10 } },
         });

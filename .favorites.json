@@ -1,0 +1,64 @@
+[
+    {
+        "type": "Group",
+        "name": "Feature Sliced",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "ijkUBfq3TKuGwFJv"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Admin\\Desktop\\production\\src\\app",
+        "parent_id": "ijkUBfq3TKuGwFJv",
+        "fsPath": "c:\\Users\\Admin\\Desktop\\production\\src\\app",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "vifbme9PtXcz38jZ"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Admin\\Desktop\\production\\src\\pages",
+        "parent_id": "ijkUBfq3TKuGwFJv",
+        "fsPath": "c:\\Users\\Admin\\Desktop\\production\\src\\pages",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "MOj8GXm4B7bawRgn"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Admin\\Desktop\\production\\src\\widgets",
+        "parent_id": "ijkUBfq3TKuGwFJv",
+        "fsPath": "c:\\Users\\Admin\\Desktop\\production\\src\\widgets",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "WaqR6gymZHtp91ND"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Admin\\Desktop\\production\\src\\features",
+        "parent_id": "ijkUBfq3TKuGwFJv",
+        "fsPath": "c:\\Users\\Admin\\Desktop\\production\\src\\features",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "S0GvIexPmta8V4Oj"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Admin\\Desktop\\production\\src\\entities",
+        "parent_id": "ijkUBfq3TKuGwFJv",
+        "fsPath": "c:\\Users\\Admin\\Desktop\\production\\src\\entities",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "V9ogLDpPm6wxJ27X"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Admin\\Desktop\\production\\src\\shared",
+        "parent_id": "ijkUBfq3TKuGwFJv",
+        "fsPath": "c:\\Users\\Admin\\Desktop\\production\\src\\shared",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "lLaw3DFQsyArP5Jg"
+    }
+]

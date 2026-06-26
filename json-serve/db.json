@@ -29,9 +29,10 @@
     "first": "ilya",
     "lastname": "kurilov",
     "age": "21",
-    "currency": "rub",
+    "currency": "USD",
     "country": "Russia",
     "city": "Kazan",
-    "username": "admin",
-    "avatar": ""  }
+    "username": "AAAA",
+    "avatar": "https://i.pinimg.com/280x280_RS/af/31/1a/af311ab2a162fce4e2ef4f42d782ea09.jpg"
+  }
 }

@@ -5,7 +5,6 @@ import { Input } from 'shared/ui/Input/Input';
 import { Profile } from 'entities/Profile/model/types/profile';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Select } from 'shared/ui/Select/Select';
 import { Currency } from 'entities/Currency/model/types/currency';
 import { CurrencySelect } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
@@ -94,7 +93,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 />
                 <Input
                     value={data?.lastname}
-                    placeholder={t('Ваше фамилия')}
+                    placeholder={t('Ваша фамилия')}
                     className={cls.input}
                     onChange={onChangeLastname}
                     readonly={readonly}

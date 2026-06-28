@@ -45,7 +45,14 @@ export const Select = memo((props: SelectProps) => {
         <div
             className={classNames(cls.Wrapper, mods, [className])}
         >
-            { label && (<span className={cls.label}>{`${label}>`}</span>)}
+            { label && (
+                <span
+                    className={cls.label}
+                    style={{ opacity: readonly ? 0.7 : 1 }}
+                >
+                    {`${label}>`}
+                </span>
+            )}
             <select
                 className={cls.select}
                 value={value}

@@ -32,7 +32,7 @@ export const CommentList = ({ className, comments, isLoading }: CommentCardProps
         >
             {
                 comments?.length ? comments.map((comment) => (
-                    <CommentCard isLoading={isLoading} className={cls.comment} comment={comment} />))
+                    <CommentCard isLoading={isLoading} className={cls.comment} comment={comment} key={comment.id} />))
                     : <Text text={t('Комментарии отсутсвуют')} />
             }
         </div>

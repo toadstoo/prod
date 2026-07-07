@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { memo, useCallback } from 'react';
 import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
@@ -8,11 +9,10 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { useCallback } from 'react';
+import cls from './ArticleListItem.module.scss';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
 } from '../../model/types/article';
-import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleListItemProps {
@@ -21,11 +21,13 @@ interface ArticleListItemProps {
     view: ArticleView;
 }
 
-export const ArticleListItem = ({ className, article, view }: ArticleListItemProps) => {
-    const { t } = useTranslation('article-details');
+export const ArticleListItem = memo((props: ArticleListItemProps) => {
+    const { className, article, view } = props;
+    const { t } = useTranslation();
     const navigate = useNavigate();
+
     const onOpenArticle = useCallback(() => {
-        navigate(RoutePath.articles_details + article.id);
+        navigate(RoutePath.article_details + article.id);
     }, [article.id, navigate]);
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
@@ -37,11 +39,12 @@ export const ArticleListItem = ({ className, article, view }: ArticleListItemPro
     );
 
     if (view === ArticleView.BIG) {
-        const textBlocks = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+        const textBlock = article.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT,
+        ) as ArticleTextBlock;
+
         return (
-            <div
-                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-            >
+            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
@@ -51,14 +54,11 @@ export const ArticleListItem = ({ className, article, view }: ArticleListItemPro
                     <Text title={article.title} className={cls.title} />
                     {types}
                     <img src={article.img} className={cls.img} alt={article.title} />
-                    {textBlocks && (
-                        <ArticleTextBlockComponent block={textBlocks} className={cls.textBlock} />
+                    {textBlock && (
+                        <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     )}
                     <div className={cls.footer}>
-                        <Button
-                            onClick={onOpenArticle}
-                            theme={ButtonTheme.OUTLINE}
-                        >
+                        <Button onClick={onOpenArticle} theme={ButtonTheme.OUTLINE}>
                             {t('Читать далее...')}
                         </Button>
                         {views}
@@ -69,11 +69,9 @@ export const ArticleListItem = ({ className, article, view }: ArticleListItemPro
     }
 
     return (
-        <div
-            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-        >
+        <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <Card className={cls.card} onClick={onOpenArticle}>
-                <div className={cls.imgWrapper}>
+                <div className={cls.imageWrapper}>
                     <img alt={article.title} src={article.img} className={cls.img} />
                     <Text text={article.createdAt} className={cls.date} />
                 </div>
@@ -85,4 +83,4 @@ export const ArticleListItem = ({ className, article, view }: ArticleListItemPro
             </Card>
         </div>
     );
-};
+});

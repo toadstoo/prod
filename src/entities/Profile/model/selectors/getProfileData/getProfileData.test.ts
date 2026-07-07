@@ -7,12 +7,12 @@ describe('getProfileData.test', () => {
     test('should return error', () => {
         const data = {
             username: 'admin',
-            age: 21,
-            country: Country.Russia,
-            lastname: 'kur',
-            first: 'ilya',
-            city: 'Kazan',
-            currency: Currency.RUB,
+            age: 22,
+            country: Country.Ukraine,
+            lastname: 'ulbi tv',
+            first: 'asd',
+            city: 'asf',
+            currency: Currency.USD,
         };
         const state: DeepPartial<StateSchema> = {
             profile: {
@@ -21,10 +21,8 @@ describe('getProfileData.test', () => {
         };
         expect(getProfileData(state as StateSchema)).toEqual(data);
     });
-
-    test('should return error', () => {
-        const state: DeepPartial<StateSchema> = {
-        };
+    test('should work with empty state', () => {
+        const state: DeepPartial<StateSchema> = {};
         expect(getProfileData(state as StateSchema)).toEqual(undefined);
     });
 });

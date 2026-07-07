@@ -9,8 +9,8 @@ export enum TextTheme {
 
 export enum TextAlign {
     RIGHT = 'right',
-    CENTER = 'center',
     LEFT = 'left',
+    CENTER = 'center',
 }
 
 export enum TextSize {

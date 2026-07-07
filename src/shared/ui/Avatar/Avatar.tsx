@@ -12,9 +12,7 @@ interface AvatarProps {
 export const Avatar = ({
     className, src, size, alt,
 }: AvatarProps) => {
-    const mods: Mods = {
-
-    };
+    const mods: Mods = {};
 
     const styles = useMemo<CSSProperties>(() => ({
         width: size || 100,

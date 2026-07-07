@@ -10,7 +10,7 @@ import { SidebarItemType } from '../types/sidebar';
 export const getSidebarItems = createSelector(
     getUserAuthData,
     (userData) => {
-        const SidebarItemList: SidebarItemType[] = [
+        const sidebarItemsList: SidebarItemType[] = [
             {
                 path: RoutePath.main,
                 Icon: MainIcon,
@@ -21,11 +21,10 @@ export const getSidebarItems = createSelector(
                 Icon: AboutIcon,
                 text: 'О сайте',
             },
-
         ];
 
         if (userData) {
-            SidebarItemList.push(
+            sidebarItemsList.push(
                 {
                     path: RoutePath.profile + userData.id,
                     Icon: ProfileIcon,
@@ -41,6 +40,6 @@ export const getSidebarItems = createSelector(
             );
         }
 
-        return SidebarItemList;
+        return sidebarItemsList;
     },
 );

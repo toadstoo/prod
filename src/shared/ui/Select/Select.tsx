@@ -13,21 +13,26 @@ interface SelectProps {
     options?: SelectOption[];
     value?: string;
     onChange?: (value: string) => void;
-    readonly?: boolean
+    readonly?: boolean;
 }
 
 export const Select = memo((props: SelectProps) => {
     const {
-        className, label, options, value, onChange, readonly,
+        className,
+        label,
+        options,
+        onChange,
+        value,
+        readonly,
     } = props;
 
-    const onChangeHadler = (e: ChangeEvent<HTMLSelectElement>) => {
+    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         if (onChange) {
             onChange(e.target.value);
         }
     };
 
-    const optionList = useMemo(() => options?.map((opt) => (
+    const optionsList = useMemo(() => options?.map((opt) => (
         <option
             className={cls.option}
             value={opt.value}
@@ -37,29 +42,22 @@ export const Select = memo((props: SelectProps) => {
         </option>
     )), [options]);
 
-    const mods: Mods = {
-
-    };
+    const mods: Mods = {};
 
     return (
-        <div
-            className={classNames(cls.Wrapper, mods, [className])}
-        >
-            { label && (
-                <span
-                    className={cls.label}
-                    style={{ opacity: readonly ? 0.7 : 1 }}
-                >
+        <div className={classNames(cls.Wrapper, mods, [className])}>
+            {label && (
+                <span className={cls.label}>
                     {`${label}>`}
                 </span>
             )}
             <select
+                disabled={readonly}
                 className={cls.select}
                 value={value}
-                onChange={onChangeHadler}
-                disabled={readonly}
+                onChange={onChangeHandler}
             >
-                {optionList}
+                {optionsList}
             </select>
         </div>
     );

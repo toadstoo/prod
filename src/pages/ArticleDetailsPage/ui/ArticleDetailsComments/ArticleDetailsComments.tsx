@@ -4,10 +4,11 @@ import { CommentList } from 'entities/Comment';
 import { AddCommentForm } from 'features/addCommentForm';
 import { TextSize, Text } from 'shared/ui/Text/Text';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useCallback } from 'react';
+import { Suspense, useCallback, memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from 'shared/ui/Stack';
+import { Loader } from 'shared/ui/Loader/Loader';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
@@ -15,10 +16,10 @@ import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
-export const ArticleDetailsComments = ({ className, id }: ArticleDetailsCommentsProps) => {
+export const ArticleDetailsComments = memo(({ className, id }: ArticleDetailsCommentsProps) => {
     const { t } = useTranslation();
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
@@ -39,11 +40,13 @@ export const ArticleDetailsComments = ({ className, id }: ArticleDetailsComments
             className={classNames('', {}, [className])}
         >
             <Text size={TextSize.L} title={t('Комментарии')} />
-            <AddCommentForm onSendComment={onSendComment} />
+            <Suspense fallback={<Loader />}>
+                <AddCommentForm onSendComment={onSendComment} />
+            </Suspense>
             <CommentList
                 isLoading={commentsIsLoading}
                 comments={comments}
             />
         </VStack>
     );
-};
+});

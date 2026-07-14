@@ -14,6 +14,7 @@ const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => <Artic
 
 export const Normal = Template.bind({});
 Normal.args = {
+    id: '1',
 };
 Normal.decorators = [StoreDecorator({
 

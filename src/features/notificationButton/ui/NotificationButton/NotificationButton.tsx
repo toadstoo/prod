@@ -6,6 +6,7 @@ import { Popover } from 'shared/ui/Popups';
 import { useState, useCallback } from 'react';
 import { Drawer } from 'shared/ui/Drawer/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 import cls from './NotificationButton.module.scss';
 import NotificationIcon from '../../../../shared/assets/icons/notification-20-20.svg';
 
@@ -43,9 +44,12 @@ export const NotificationButton = ({ className }: NotificationButtonProps) => {
             </BrowserView>
             <MobileView>
                 {trigger}
-                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                    <Notificationlist />
-                </Drawer>
+                <AnimationProvider>
+                    <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                        <Notificationlist />
+                    </Drawer>
+                </AnimationProvider>
+
             </MobileView>
         </div>
 

@@ -28,7 +28,7 @@ export const Modal = (props: ModalProps) => {
     } = props;
     const { theme } = useTheme();
 
-    const { close, isClosing, isMounted } = useModal({
+    const { isClosing, isMounted } = useModal({
         animationDelay: ANIMATION_DELAY,
         onClose,
         isOpen,

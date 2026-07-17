@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './RatingCard.module.scss';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card/Card';
 import { Text } from '@/shared/ui/Text/Text';
@@ -19,6 +18,7 @@ interface RatingCardProps {
     hasFeedback?: boolean;
     onCancel?: (starsCount: number) => void;
     onAccept?: (starsCount: number, feedback?: string) => void;
+    rate?: number;
 
 }
 
@@ -29,10 +29,11 @@ export const RatingCard = ({
     hasFeedback,
     onCancel,
     onAccept,
+    rate = 0,
 }: RatingCardProps) => {
     const { t } = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
     const onSelectStars = useCallback((SelectedStarsCount: number) => {
@@ -64,11 +65,12 @@ export const RatingCard = ({
 
     return (
         <Card
-            className={classNames(cls.RatingCard, {}, [className])}
+            className={className}
+            max
         >
             <VStack align="center" gap="8">
-                <Text title={title} />
-                <StarRating size={40} onSelect={onSelectStars} />
+                <Text title={starsCount ? t('Спасибо за оценку!') : title} />
+                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy>
@@ -87,7 +89,7 @@ export const RatingCard = ({
             </BrowserView>
             <MobileView>
                 <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
-                    <VStack gap="32">
+                    <VStack gap="32" max>
                         {modalContent}
                         <Button onClick={acceptHandle} size={ButtonSize.L} fullWidth>
                             {t('Отправить')}

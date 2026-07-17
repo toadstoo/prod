@@ -16,8 +16,7 @@ const stars = [1, 2, 3, 4, 5];
 export const StarRating = ({
     className, size = 30, onSelect, selectedStars = 0,
 }: StarRatingProps) => {
-    const [isHovered, setIsHovered] = useState(false);
-    const [currentStarsCount, SetCurrentStarsCount] = useState(0);
+    const [currentStarsCount, SetCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
     const onHover = (starsCount: number) => () => {

@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { RoutePath } from '@/shared/const/router';
+import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,

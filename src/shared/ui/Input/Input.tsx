@@ -1,7 +1,7 @@
 import React, {
     InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
@@ -53,10 +53,6 @@ export const Input = memo((props: InputProps) => {
 
     const onSelect = (e: any) => {
         setCaretPosition(e?.target?.selectionStart || 0);
-    };
-
-    const mods: Mods = {
-        [cls.readonly]: readonly,
     };
 
     return (

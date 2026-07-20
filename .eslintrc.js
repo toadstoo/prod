@@ -44,7 +44,8 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'ulbi-tv-plugin/path-checker': 'error',
+        'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
+        'ulbi-tv-plugin/public-api-imports': ['error', { alias: '@' }],
         'i18next/no-literal-string': [
             'error',
             {

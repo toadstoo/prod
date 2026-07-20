@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NotificationItem } from './NotificationItem';
 
 export default {
-    title: 'shared/NotificationItem',
+    title: 'entities/Notification/NotificationItem',
     component: NotificationItem,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -13,4 +13,10 @@ const Template: ComponentStory<typeof NotificationItem> = (args) => <Notificatio
 
 export const Normal = Template.bind({});
 Normal.args = {
+    item: {
+        id: '1',
+        title: 'Благодарность',
+        description: 'Спасибо добрый человек',
+        href: '/profile',
+    },
 };

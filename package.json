@@ -16,7 +16,7 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:ui": "npx loki test",
+    "test:e2e": "cypress open",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
@@ -31,7 +31,13 @@
   "lint-staged": {
     "**/*.{ts,tsx}": "eslint"
   },
-  "keywords": ["react", "typescript", "fsd", "webpack", "vite"],
+  "keywords": [
+    "react",
+    "typescript",
+    "fsd",
+    "webpack",
+    "vite"
+  ],
   "author": "Production Team",
   "license": "ISC",
   "devDependencies": {
@@ -72,6 +78,7 @@
     "circular-dependency-plugin": "^5.2.2",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
+    "cypress": "^11.0.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-i18next": "^5.1.2",

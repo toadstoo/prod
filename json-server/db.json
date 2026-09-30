@@ -598,6 +598,13 @@
       "password": "123",
       "roles": "[MANAGER]",
       "avatar": ""
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": "[ADMIN]",
+      "avatar": ""
     }
   ],
   "profile": [

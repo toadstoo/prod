@@ -27,7 +27,7 @@ interface EditableProfileCardProps {
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-    const { className, id } = props;
+    const { className, id, ...otherProps } = props;
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);

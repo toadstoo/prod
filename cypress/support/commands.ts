@@ -10,6 +10,5 @@ Cypress.Commands.addAll(articleCommands)
 Cypress.Commands.addAll(commentsCommands)
 Cypress.Commands.addAll(ratingCommands)
     
-})
 
 export {};

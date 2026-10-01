@@ -11,6 +11,7 @@ import {
     getRouteArticleDetails,
     getRouteArticles,
 } from '@/shared/const/router';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;

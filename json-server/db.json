@@ -685,6 +685,10 @@
             "username": "admin",
             "password": "123",
             "roles": "[ADMIN]",
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isCounterEnabled": true
+            },
             "avatar": ""
         },
         {
@@ -692,6 +696,10 @@
             "username": "user",
             "password": "123",
             "roles": "[USER]",
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isCounterEnabled": false
+            },
             "avatar": ""
         },
         {
@@ -699,6 +707,10 @@
             "username": "manager",
             "password": "123",
             "roles": "[MANAGER]",
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isCounterEnabled": false
+            },
             "avatar": ""
         },
         {
@@ -706,6 +718,10 @@
             "username": "testuser",
             "password": "123",
             "roles": "[ADMIN]",
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isCounterEnabled": true
+            },
             "avatar": ""
         }
     ],

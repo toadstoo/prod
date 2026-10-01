@@ -5,7 +5,11 @@ import { ArticleList } from '@/entities/Article';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text } from '@/shared/ui/Text';
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
+import {
+    getArticlesPageError,
+    getArticlesPageIsLoading,
+    getArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
 import { getArticles } from '../../model/slices/articlesPageSlice';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 
@@ -13,7 +17,9 @@ interface ArticleInfiniteListProps {
     className?: string;
 }
 
-export const ArticleInfiniteList = ({ className }: ArticleInfiniteListProps) => {
+export const ArticleInfiniteList = ({
+    className,
+}: ArticleInfiniteListProps) => {
     const { t } = useTranslation();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);

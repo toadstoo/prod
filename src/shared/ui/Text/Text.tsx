@@ -29,7 +29,7 @@ interface TextProps {
     size?: TextSize;
 }
 
-type HeaderTagType = 'h1' | 'h2' | 'h3'
+type HeaderTagType = 'h1' | 'h2' | 'h3';
 
 const mapSizeHeaderTag: Record<TextSize, HeaderTagType> = {
     [TextSize.S]: 'h3',

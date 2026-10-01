@@ -1,8 +1,7 @@
 {
-    "i18n-ally.localesPaths": [
-        "public/locales",
-        "src/shared/config/i18n"
-    ],
-    "i18n-ally.keystyle": "nested"
-
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    }
 }

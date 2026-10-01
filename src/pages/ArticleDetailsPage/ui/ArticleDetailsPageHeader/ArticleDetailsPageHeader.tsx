@@ -7,13 +7,18 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { getArticleDetailsData } from '@/entities/Article';
 import { HStack } from '@/shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/article';
-import { getRouteArticleDetails, getRouteArticles } from '@/shared/const/router';
+import {
+    getRouteArticleDetails,
+    getRouteArticles,
+} from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
 }
 
-export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeaderProps) => {
+export const ArticleDetailsPageHeader = ({
+    className,
+}: ArticleDetailsPageHeaderProps) => {
     const { t } = useTranslation();
     const navigate = useNavigate();
     const canEdit = useSelector(getCanEditArticle);
@@ -35,17 +40,11 @@ export const ArticleDetailsPageHeader = ({ className }: ArticleDetailsPageHeader
             justify="between"
             className={classNames('', {}, [className])}
         >
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={onBackToList}
-            >
+            <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
             </Button>
             {canEdit && (
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onEditArticle}
-                >
+                <Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
                     {t('Редактировать')}
                 </Button>
             )}

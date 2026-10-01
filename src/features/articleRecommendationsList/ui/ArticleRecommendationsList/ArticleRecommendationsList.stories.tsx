@@ -24,7 +24,9 @@ const article: Article = {
     subtitle: '123123',
 };
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
+const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
+    <ArticleRecommendationsList {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

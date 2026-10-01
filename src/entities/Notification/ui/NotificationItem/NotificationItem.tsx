@@ -9,7 +9,10 @@ interface NotificationItemProps {
     item: Notification;
 }
 
-export const NotificationItem = ({ className, item }: NotificationItemProps) => {
+export const NotificationItem = ({
+    className,
+    item,
+}: NotificationItemProps) => {
     const content = (
         <Card
             theme={CardTheme.OUTLINED}
@@ -21,7 +24,12 @@ export const NotificationItem = ({ className, item }: NotificationItemProps) => 
 
     if (item.href) {
         return (
-            <a className={cls.link} target="_blank" href={item.href} rel="noreferrer">
+            <a
+                className={cls.link}
+                target="_blank"
+                href={item.href}
+                rel="noreferrer"
+            >
                 {content}
             </a>
         );

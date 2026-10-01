@@ -4,7 +4,10 @@ import { useCallback } from 'react';
 import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { useGetProfileRaiting, useRateProfile } from '../../api/profileRatingApi';
+import {
+    useGetProfileRaiting,
+    useRateProfile,
+} from '../../api/profileRatingApi';
 
 export interface ProfileRatingProps {
     className?: string;
@@ -22,26 +25,35 @@ export const ProfileRating = ({ className, profileId }: ProfileRatingProps) => {
 
     const [rateArticleMutation] = useRateProfile();
 
-    const handleRateArticle = useCallback((starsCount: number, feedback?: string) => {
-        try {
-            rateArticleMutation({
-                userId: userData?.id ?? '',
-                profileId,
-                rate: starsCount,
-                feedback,
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    }, [rateArticleMutation, userData?.id, profileId]);
+    const handleRateArticle = useCallback(
+        (starsCount: number, feedback?: string) => {
+            try {
+                rateArticleMutation({
+                    userId: userData?.id ?? '',
+                    profileId,
+                    rate: starsCount,
+                    feedback,
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        },
+        [rateArticleMutation, userData?.id, profileId],
+    );
 
-    const onAccept = useCallback((starsCount: number, feedback?: string) => {
-        handleRateArticle(starsCount, feedback);
-    }, [handleRateArticle]);
+    const onAccept = useCallback(
+        (starsCount: number, feedback?: string) => {
+            handleRateArticle(starsCount, feedback);
+        },
+        [handleRateArticle],
+    );
 
-    const onCancel = useCallback((starsCount: number) => {
-        handleRateArticle(starsCount);
-    }, [handleRateArticle]);
+    const onCancel = useCallback(
+        (starsCount: number) => {
+            handleRateArticle(starsCount);
+        },
+        [handleRateArticle],
+    );
 
     if (isLoading) {
         return <Skeleton width="100%" height={120} />;

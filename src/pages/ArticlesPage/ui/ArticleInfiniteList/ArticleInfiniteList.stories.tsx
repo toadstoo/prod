@@ -10,11 +10,10 @@ export default {
     },
 } as ComponentMeta<typeof ArticleInfiniteList>;
 
-const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
+const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
+    <ArticleInfiniteList {...args} />
+);
 
 export const Normal = Template.bind({});
-Normal.args = {
-};
-Normal.decorators = [StoreDecorator({
-
-})];
+Normal.args = {};
+Normal.decorators = [StoreDecorator({})];

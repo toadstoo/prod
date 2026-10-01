@@ -10,11 +10,12 @@ export default {
     },
 } as ComponentMeta<typeof Notificationlist>;
 
-const Template: ComponentStory<typeof Notificationlist> = (args) => <Notificationlist {...args} />;
+const Template: ComponentStory<typeof Notificationlist> = (args) => (
+    <Notificationlist {...args} />
+);
 
 export const Normal = Template.bind({});
-Normal.args = {
-};
+Normal.args = {};
 
 Normal.decorators = [StoreDecorator({})];
 

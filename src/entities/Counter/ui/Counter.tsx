@@ -23,22 +23,13 @@ export const Counter = () => {
     return (
         <div>
             <h1 data-testid="value-title">{counterValue}</h1>
-            <Button
-                onClick={handleInc}
-                data-testid="increment-btn"
-            >
+            <Button onClick={handleInc} data-testid="increment-btn">
                 {t('increment')}
             </Button>
-            <Button
-                data-testid="decrement-btn"
-                onClick={handleDel}
-            >
+            <Button data-testid="decrement-btn" onClick={handleDel}>
                 {t('decrement')}
             </Button>
-            <Button
-                data-testid="five-btn"
-                onClick={handleAddFive}
-            >
+            <Button data-testid="five-btn" onClick={handleAddFive}>
                 {t('+5')}
             </Button>
         </div>

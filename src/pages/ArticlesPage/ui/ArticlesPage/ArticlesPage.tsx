@@ -1,6 +1,9 @@
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '@/widgets/Page';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
@@ -28,7 +31,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
-                data-testid = "ArticlesPage"
+                data-testid="ArticlesPage"
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.ArticlesPage, {}, [className])}
             >

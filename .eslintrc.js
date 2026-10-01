@@ -26,6 +26,7 @@ module.exports = {
         'ulbi-tv-plugin',
         'unused-imports',
     ],
+    ignorePatterns: ['cypress/'],
     rules: {
         'unused-imports/no-unused-imports': 'error',
         'react/jsx-filename-extension': [
@@ -90,6 +91,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+        'react/no-unstable-nested-components': 'warn',
     },
     globals: {
         __IS_DEV__: true,

@@ -5,7 +5,9 @@ import { MemoryRouter } from 'react-router-dom';
 import i18nForTests from '@/shared/config/i18n/i18nForTests';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { Theme } from '@/shared/const/theme';
+// eslint-disable-next-line ulbi-tv-plugin/layer-imports
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
+// eslint-disable-next-line ulbi-tv-plugin/layer-imports
 import '@/app/styles/index.scss';
 
 export interface componentRenderOptions {
